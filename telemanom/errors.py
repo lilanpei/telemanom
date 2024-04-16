@@ -414,6 +414,7 @@ class ErrorWindow:
                 i_to_remove = np.array([])
         i_to_remove[::-1].sort()
 
+        i_to_remove = np.array(i_to_remove, dtype=int)
         if len(i_to_remove) > 0:
             E_seq = np.delete(E_seq, i_to_remove, axis=0)
 
