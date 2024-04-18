@@ -1,8 +1,9 @@
 # Runtime params
 #===================================
-train: False # train new or existing model for each channel
-predict: False # generate new predicts or, if False, use predictions stored locally
+train: True # train new or existing model for each channel
+predict: True # generate new predicts or, if False, use predictions stored locally
 use_id: "2018-05-19_15.00.10"
+model_architecture: "ESN" #"LSTM" # neural network architecture LSTM, ESN
 
 # number of values to evaluate in each batch
 batch_size: 70
@@ -22,9 +23,11 @@ smoothing_perc: 0.05
 error_buffer: 100
 
 # LSTM parameters
+# model parameters
 # ==================================
 loss_metric: 'mse'
 optimizer: 'adam'
+learning_rate: '0.001'
 validation_split: 0.2
 dropout: 0.3
 lstm_batch_size: 64
@@ -35,6 +38,8 @@ epochs: 35
 # network architecture [<neurons in hidden layer>, <neurons in hidden layer>]
 # Size of input layer not listed - dependent on evr modules and types included (see 'evr_modules' and 'erv_types' above)
 layers: [80,80]
+# hidden_size: 80
+# num_layers: 2
 
 # Number of consequetive training iterations to allow without decreasing the val_loss by at least min_delta 
 patience: 10
